@@ -6,7 +6,7 @@ namespace AnonymousMethod
     {
         public delegate void Print(int value);
 
-        public delegate int Add(int value, int val);
+        public delegate int myDelegate(int value, int val);
 
         static void Main(string[] args)
         {
@@ -16,11 +16,11 @@ namespace AnonymousMethod
 
             print(100);
 
-            Add sum = delegate (int a, int b) { 
+            myDelegate del = delegate (int a, int b) { 
                 return a + b; 
             };
 
-            Console.WriteLine(sum(10, 10));
+            Console.WriteLine(del(10, 10));
 
             int i = 10;
 
@@ -33,6 +33,21 @@ namespace AnonymousMethod
             };
 
             prnt(100);
+
+            del += addNumbers;
+            Console.WriteLine(multiplyNumbers(5, del(6, 9)));
+
+
+        }
+
+        public static int multiplyNumbers(int a, int b)
+        {
+            return a * b;
+        }
+
+        public static int addNumbers(int a, int b)
+        {
+            return a + b;
         }
 
 
