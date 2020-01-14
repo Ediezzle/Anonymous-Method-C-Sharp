@@ -25,7 +25,7 @@ namespace AnonymousMethod
             int i = 10;
 
             Print prnt = delegate (int val) {
-                //Anonymous methods can access variables defined in an outer function
+                //Anonymous methods can access variables defined in an outer function, but NOT ref or out parameter of the outer method 
                 val += i;
                 Console.WriteLine($"Anonymous method: {val}");
             };
